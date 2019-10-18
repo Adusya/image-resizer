@@ -9,7 +9,7 @@ import java.net.URL;
 public class ImaginaryImageResizer implements ImageResizer {
 
 	@Override
-	public void resizeByWidth(InputStream is, int width, OutputStream os, int length, float quality) throws IOException {
+	public void resizeByWidth(InputStream is, int width, OutputStream os, int length, Integer quality) throws IOException {
 
 		URL u = new URL("http://10.242.101.40:9000/resize?quality=100&width=" + width);
 		HttpURLConnection conn = (HttpURLConnection) u.openConnection();
@@ -43,12 +43,12 @@ public class ImaginaryImageResizer implements ImageResizer {
 	}
 
 	@Override
-	public void resize(InputStream is, int width, int height, OutputStream os, float quality) throws IOException {
+	public void resize(InputStream is, int width, int height, OutputStream os, Integer quality) throws IOException {
 
 	}
 
 	@Override
-	public void resizeByHeight(InputStream is, int height, OutputStream os, float quality) throws IOException {
+	public void resizeByHeight(InputStream is, int height, OutputStream os, Integer quality) throws IOException {
 		// TODO Auto-generated method stub
 
 	}

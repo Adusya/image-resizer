@@ -6,7 +6,6 @@ import java.io.OutputStream;
 
 import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.resizers.configurations.Antialiasing;
-import net.coobird.thumbnailator.resizers.configurations.Dithering;
 import net.coobird.thumbnailator.resizers.configurations.Rendering;
 
 public class ThumbnailatorImageResizer implements ImageResizer {
@@ -15,36 +14,42 @@ public class ThumbnailatorImageResizer implements ImageResizer {
 	static final Rendering rendering = Rendering.SPEED;
 	
 	@Override
-	public void resize(InputStream is, int width, int height, OutputStream os, float quality) throws IOException {
+	public void resize(InputStream is, int width, int height, OutputStream os, Integer quality) throws IOException {
+		
+		float floatQuality = quality.floatValue() / 100;
 		
 		Thumbnails.of(is)
 		.rendering(rendering)
 		.antialiasing(antialiasing)
-		.outputQuality(quality)
+		.outputQuality(floatQuality)
 	    .size(width, height)
 	    .toOutputStream(os);
 
 	}
 	
 	@Override
-	public void resizeByWidth(InputStream is, int width, OutputStream os, int length, float quality) throws IOException {
+	public void resizeByWidth(InputStream is, int width, OutputStream os, int length, Integer quality) throws IOException {
+		
+		float floatQuality = quality.floatValue() / 100;
 		
 		Thumbnails.of(is)
 		.rendering(rendering)
 		.antialiasing(antialiasing)
-		.outputQuality(quality)
+		.outputQuality(floatQuality)
 	    .width(width)
 	    .toOutputStream(os);
 
 	}
 	
 	@Override
-	public void resizeByHeight(InputStream is, int height, OutputStream os, float quality) throws IOException {
+	public void resizeByHeight(InputStream is, int height, OutputStream os, Integer quality) throws IOException {
 
+		float floatQuality = quality.floatValue() / 100;
+		
 		Thumbnails.of(is)
 		.rendering(rendering)
 		.antialiasing(antialiasing)
-		.outputQuality(quality)
+		.outputQuality(floatQuality)
 	    .height(height)
 	    .toOutputStream(os);
 		
