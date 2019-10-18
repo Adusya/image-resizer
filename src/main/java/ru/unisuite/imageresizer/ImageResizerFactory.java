@@ -2,16 +2,13 @@ package ru.unisuite.imageresizer;
 
 public class ImageResizerFactory {
 
-	ImageResizer imageResizer;
-
-	public ImageResizerFactory() {
-		this.imageResizer = new 
-//				ImaginaryImageResizer();
-				ThumbnailatorImageResizer();
+	private ImageResizerFactory() {		
 	}
 
-	public ImageResizer getImageResizer() {
-		return imageResizer;
+	public static ImageResizer getImageResizer() {
+		return new 
+				ThumbnailatorImageResizer();
+//				ImaginaryImageResizer();
 	}
 
 }
