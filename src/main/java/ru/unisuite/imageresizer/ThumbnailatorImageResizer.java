@@ -28,7 +28,7 @@ public class ThumbnailatorImageResizer implements ImageResizer {
 	}
 	
 	@Override
-	public void resizeByWidth(InputStream is, int width, OutputStream os, int length, Integer quality) throws IOException {
+	public void resizeByWidth(InputStream is, int width, OutputStream os, Integer quality) throws IOException {
 		
 		float floatQuality = quality.floatValue() / 100;
 		

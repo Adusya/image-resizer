@@ -9,14 +9,14 @@ import java.net.URL;
 public class ImaginaryImageResizer implements ImageResizer {
 
 	@Override
-	public void resizeByWidth(InputStream is, int width, OutputStream os, int length, Integer quality) throws IOException {
+	public void resizeByWidth(InputStream is, int width, OutputStream os, Integer quality) throws IOException {
 
 		URL u = new URL("http://10.242.101.40:9000/resize?quality=100&width=" + width);
 		HttpURLConnection conn = (HttpURLConnection) u.openConnection();
 		conn.setDoOutput(true);
 		conn.setRequestMethod("POST");
 		conn.setRequestProperty("Content-Type", "image/jpeg");
-		conn.setRequestProperty("Content-Length", String.valueOf(length));
+//		conn.setRequestProperty("Content-Length", String.valueOf(length));
 		
 		try (OutputStream httpOs = conn.getOutputStream()) {
 			writeToStream(is, httpOs);
